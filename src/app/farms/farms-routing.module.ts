@@ -4,7 +4,7 @@ import { FarmsComponent } from './farms/farms.component';
 
 const routes: Routes = [
   {path: '', component: FarmsComponent}
-];
+ ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
