@@ -9,7 +9,7 @@ import { delay, first, tap } from 'rxjs';
 
 export class FarmsService { 
 
-  private readonly API = 'http://localhost:8080/api/v1/farms'; 
+  private readonly API = 'http://localhost:8080/api/v1/farms/'; 
 
   constructor(private httpClient: HttpClient) {}
 
@@ -28,5 +28,18 @@ export class FarmsService {
       first(),
       tap( farm => console.log(farm))
     );
+  }
+
+  update(data: Farm, id: string){
+    return this.httpClient.put<Farm>(this.API + id, data)
+    .pipe(
+      first(),
+      tap( farm => console.log(farm))
+    );
+
+  }
+
+  remove(id: string){
+    return this.httpClient.delete<any>(this.API+id);
   }
 }

@@ -6,12 +6,14 @@ import { AppMaterialModule } from '../shared/app-material/app-material.module';
 import { FarmsRoutingModule } from './farms-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { FarmFormComponent } from './farm-form/farm-form.component';
+import { FarmDeleteComponent } from './farm-delete/farm-delete.component';
 
 
 @NgModule({
   declarations: [
     FarmsComponent,
-    FarmFormComponent
+    FarmFormComponent,
+    FarmDeleteComponent
   ],
   imports: [
     CommonModule,
