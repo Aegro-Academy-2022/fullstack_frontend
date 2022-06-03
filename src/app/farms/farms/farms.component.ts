@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { catchError, Observable, of } from 'rxjs';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
+import { FarmFormComponent } from '../farm-form/farm-form.component';
 import { Farm } from '../model/farm';
 import { FarmsService } from '../services/farms.service';
 
@@ -13,7 +14,7 @@ import { FarmsService } from '../services/farms.service';
 export class FarmsComponent implements OnInit {
 
   farms$: Observable <Farm[]>;
-  displayedColumns = ['name'];
+  displayedColumns = ['name', 'actions'];
 
   constructor(
     private farmsService: FarmsService, 
@@ -38,6 +39,13 @@ export class FarmsComponent implements OnInit {
 
   }
 
+  onAdd(){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "30%";
+    this.dialog.open(FarmFormComponent, dialogConfig);
+  }
   
 
 }
