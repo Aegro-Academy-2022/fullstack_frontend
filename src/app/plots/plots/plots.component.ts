@@ -8,6 +8,7 @@ import { Farm } from 'src/app/farms/model/farm';
 import { FarmsService } from 'src/app/farms/services/farms.service';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
 import { Plot } from '../model/plot';
+import { PlotDeleteComponent } from '../plot-delete/plot-delete.component';
 import { PlotFormComponent } from '../plot-form/plot-form.component';
 import { PlotsService } from '../services/services.service';
 
@@ -92,7 +93,20 @@ export default class PlotsComponent implements OnInit {
         this.getAll();
       }
     });
+  }
 
+  onDelete(plot : Plot){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "30%";
+    dialogConfig.data = plot;
+    this.dialog.open(PlotDeleteComponent, dialogConfig)
+    .afterClosed().subscribe(res => {
+      if(res === 'delete'){
+        this.getAll();
+      }
+    });
   }
 
 

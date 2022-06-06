@@ -5,11 +5,13 @@ import { SharedModule } from "../shared/shared.module";
 import { PlotsRoutingModule } from "./plots-routing.module";
 import PlotsComponent from "./plots/plots.component";
 import { PlotFormComponent } from './plot-form/plot-form.component';
+import { PlotDeleteComponent } from './plot-delete/plot-delete.component';
 
 @NgModule({
     declarations: [
      PlotsComponent,
-     PlotFormComponent
+     PlotFormComponent,
+     PlotDeleteComponent
     ],
     imports: [
       CommonModule,
