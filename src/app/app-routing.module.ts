@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PlotsComponent } from './plots/plots/plots.component';
+import PlotsComponent from './plots/plots/plots.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'farms'},

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import PlotsComponent from './plots.component';
+import { PlotFormComponent } from './plot-form.component';
 
-describe('PlotsComponent', () => {
-  let component: PlotsComponent;
-  let fixture: ComponentFixture<PlotsComponent>;
+describe('PlotFormComponent', () => {
+  let component: PlotFormComponent;
+  let fixture: ComponentFixture<PlotFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PlotsComponent ]
+      declarations: [ PlotFormComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PlotsComponent);
+    fixture = TestBed.createComponent(PlotFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

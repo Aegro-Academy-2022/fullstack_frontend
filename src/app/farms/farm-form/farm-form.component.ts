@@ -46,7 +46,7 @@ export class FarmFormComponent implements OnInit {
   
           },
           error:()=>{
-            this.onError('Erro ao savar a fazenda');
+            this.onError('Erro ao salvar a fazenda');
           }
         })
       }
