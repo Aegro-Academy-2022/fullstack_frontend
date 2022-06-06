@@ -9,7 +9,7 @@ const routes: Routes = [
     loadChildren: () => import ('./farms/farms.module').then(m => m.FarmsModule)
   },
   {
-    path: 'farms/:id',
+    path: 'farms/:id/plots',
     loadChildren: () => import ('./plots/plots.module').then(m => m.PlotsModule)
   }
 ];

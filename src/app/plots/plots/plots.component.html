@@ -1,10 +1,58 @@
-<div>
-    <p>{{farm$}}</p>
-</div>
+<div *ngIf="farm$ | async as farm">
+    <mat-card>
+        <mat-toolbar color='primary'>
+            <div>
+                <p class="farm-name">{{farm.name}}</p>
+            </div>
+            <div>
+                <p>Produtividade: {{farm.productivity}} kg/ha</p>
+                
+            </div>
+            
+        </mat-toolbar>
+        <div *ngIf="plots$ | async as plots">
+            <table mat-table [dataSource]="plots" class="mat-elevation-z8">
 
-<div>
-    
-        <div *ngIf="farm$ | async as farm">
-            <p>{{farm.name}}</p>
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef>Talhões</th>
+                    <td mat-cell *matCellDef="let plot">{{plot.name}}</td>
+                </ng-container>
+
+
+                 <!-- Area Column -->
+                <ng-container matColumnDef="area">
+                    <th mat-header-cell *matHeaderCellDef>Área</th>
+                    <td mat-cell *matCellDef="let plot">{{plot.area}}</td>
+                </ng-container>
+
+                <!-- Actions Column -->
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef>
+                        <button mat-mini-fab color="accent" aria-label="Adicionar fazenda" class="add-button">
+                            <mat-icon>add</mat-icon>
+                        </button>
+                    </th>
+
+                    <td mat-cell *matCellDef="let plot">
+                        <button mat-icon-button color="primary" aria-label="Editar fazenda">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+
+                        <button mat-icon-button color="primary" aria-label="Remover fazenda">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+
+                        <button mat-icon-button color="primary" aria-label="Visualizar talhões">
+                            <mat-icon>arrow_forward_ios</mat-icon>
+                        </button>
+
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
         </div>
+    </mat-card>
 </div>
