@@ -1,0 +1,10 @@
+<div>
+    <p>{{farm$}}</p>
+</div>
+
+<div>
+    
+        <div *ngIf="farm$ | async as farm">
+            <p>{{farm.name}}</p>
+        </div>
+</div>

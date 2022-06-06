@@ -21,9 +21,6 @@ export class FarmsComponent implements OnInit {
   displayedColumns = ['name', 'actions'];
   dataSource!: MatTableDataSource<Farm>;
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
-
   constructor(
     private farmsService: FarmsService, 
     public dialog: MatDialog

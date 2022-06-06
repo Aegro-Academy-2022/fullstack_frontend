@@ -22,6 +22,14 @@ export class FarmsService {
     );
   }
 
+  find(id: string | null) {
+    return this.httpClient.get<Farm>(this.API+id)
+    .pipe(
+      first(),
+      tap( farm => console.log(farm))
+    );
+  }
+
   save(data : Farm) {
     return this.httpClient.post<Farm>(this.API, data)
     .pipe(
