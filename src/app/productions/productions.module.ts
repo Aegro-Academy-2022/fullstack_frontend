@@ -4,11 +4,12 @@ import { AppMaterialModule } from "../shared/app-material/app-material.module";
 import { SharedModule } from "../shared/shared.module";
 import { ProductionsRoutingModule } from "./productions-routing.module";
 import { ProductionsComponent } from './productions/productions.component';
+import { ProductionFormComponent } from './production-form/production-form.component';
 
 
 @NgModule({
     declarations: [     
-    ProductionsComponent
+    ProductionsComponent, ProductionFormComponent
   ],
     imports: [
       CommonModule,

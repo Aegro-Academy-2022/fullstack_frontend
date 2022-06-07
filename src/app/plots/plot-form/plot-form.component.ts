@@ -1,7 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
 import { Plot } from '../model/plot';
@@ -20,7 +19,6 @@ export class PlotFormComponent implements OnInit {
 
   constructor(
     private formBuilder : FormBuilder,
-    private route: ActivatedRoute,
     private plotsService: PlotsService,
     public dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public editData: any,
@@ -28,7 +26,6 @@ export class PlotFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(typeof this.editData)
     this.plotForm = this.formBuilder.group({
       name : ['', Validators.required],
       area : ['', Validators.required]

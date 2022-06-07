@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { catchError, Observable, of } from 'rxjs';
@@ -7,6 +7,7 @@ import { Plot } from 'src/app/plots/model/plot';
 import { PlotsService } from 'src/app/plots/services/plots.service';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
 import { Production } from '../model/production';
+import { ProductionFormComponent } from '../production-form/production-form.component';
 import { ProductionsService } from '../services/productions.service';
 
 @Component({
@@ -64,4 +65,39 @@ export class ProductionsComponent implements OnInit {
     );
   }
 
+  onAdd(){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "30%";
+    dialogConfig.data = {
+      idFarm: this.idFarm,
+      idPlot: this.idPlot,
+      production: null,
+    };
+    this.dialog.open(ProductionFormComponent, dialogConfig)
+    .afterClosed().subscribe(res => {
+      if(res === 'save'){
+        this.getAll();
+      }
+    });
+  }
+
+  onEdit(production: Production) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "30%";
+    dialogConfig.data = {
+      idFarm: this.idFarm,
+      idPlot: this.idPlot,
+      production: production,
+    };
+    this.dialog.open(ProductionFormComponent, dialogConfig)
+    .afterClosed().subscribe(res => {
+      if(res === 'update'){
+        this.getAll();
+      }
+    });
+  }
 }
