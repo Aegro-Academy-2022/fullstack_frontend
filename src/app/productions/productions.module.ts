@@ -5,11 +5,12 @@ import { SharedModule } from "../shared/shared.module";
 import { ProductionsRoutingModule } from "./productions-routing.module";
 import { ProductionsComponent } from './productions/productions.component';
 import { ProductionFormComponent } from './production-form/production-form.component';
+import { ProductionDeleteComponent } from './production-delete/production-delete.component';
 
 
 @NgModule({
     declarations: [     
-    ProductionsComponent, ProductionFormComponent
+    ProductionsComponent, ProductionFormComponent, ProductionDeleteComponent
   ],
     imports: [
       CommonModule,

@@ -47,7 +47,7 @@ export class ProductionFormComponent implements OnInit {
   
           },
           error:()=>{
-            this.onError('Erro ao salvar talhão');
+            this.onError('Erro ao salvar produção');
           }
         })
       }
@@ -69,7 +69,7 @@ export class ProductionFormComponent implements OnInit {
 
       },
       error:()=>{
-        this.onError('Erro ao atualizar o talhão');
+        this.onError('Erro ao atualizar a produção');
       }
     })
   }

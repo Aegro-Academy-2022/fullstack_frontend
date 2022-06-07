@@ -4,9 +4,11 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { catchError, Observable, of } from 'rxjs';
 import { Plot } from 'src/app/plots/model/plot';
+import { PlotDeleteComponent } from 'src/app/plots/plot-delete/plot-delete.component';
 import { PlotsService } from 'src/app/plots/services/plots.service';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
 import { Production } from '../model/production';
+import { ProductionDeleteComponent } from '../production-delete/production-delete.component';
 import { ProductionFormComponent } from '../production-form/production-form.component';
 import { ProductionsService } from '../services/productions.service';
 
@@ -100,4 +102,24 @@ export class ProductionsComponent implements OnInit {
       }
     });
   }
+
+
+  onDelete(production : Production){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "30%";
+    dialogConfig.data = {
+      idFarm: this.idFarm,
+      idPlot: this.idPlot,
+      idProduction: production.id,
+    };
+    this.dialog.open(ProductionDeleteComponent, dialogConfig)
+    .afterClosed().subscribe(res => {
+      if(res === 'delete'){
+        this.getAll();
+      }
+    });
+  }
+
 }
