@@ -2,11 +2,20 @@
     <mat-card>
         <mat-toolbar color='primary'>
             <div>
+                <button mat-icon-button color="primary" aria-label="Voltar" class="back-btn" routerLink="/farms/{{plot.fkFarm}}/plots/">
+                    <mat-icon>arrow_back_ios</mat-icon>
+                </button>
+            </div>
+            <div>
                 <p class="plot-name">{{plot.name}}</p>
             </div>
             <div>
                 <p>Área: {{plot.area}} ha - Produtividade: {{plot.productivity}} kg/ha</p>
-                
+            </div>
+            <div>
+                <button mat-icon-button aria-label="Editar fazenda" class="edit-btn" (click)="onEditPlot(plot)">
+                    <mat-icon>edit</mat-icon>
+                </button>
             </div>
             
         </mat-toolbar>

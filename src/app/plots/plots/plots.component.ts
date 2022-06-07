@@ -3,6 +3,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { catchError, Observable, of } from 'rxjs';
+import { FarmFormComponent } from 'src/app/farms/farm-form/farm-form.component';
 import { Farm } from 'src/app/farms/model/farm';
 import { FarmsService } from 'src/app/farms/services/farms.service';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
@@ -103,6 +104,21 @@ export default class PlotsComponent implements OnInit {
         this.getAll();
       }
     });
+  }
+
+  onEditFarm(farm: Farm) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "30%";
+    dialogConfig.data = farm;
+    this.dialog.open(FarmFormComponent, dialogConfig)
+    .afterClosed().subscribe(res => {
+      if(res === 'update'){
+        this.getAll();
+      }
+    });
+
   }
 
 

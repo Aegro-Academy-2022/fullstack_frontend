@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { catchError, Observable, of } from 'rxjs';
 import { Plot } from 'src/app/plots/model/plot';
 import { PlotDeleteComponent } from 'src/app/plots/plot-delete/plot-delete.component';
+import { PlotFormComponent } from 'src/app/plots/plot-form/plot-form.component';
 import { PlotsService } from 'src/app/plots/services/plots.service';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
 import { Production } from '../model/production';
@@ -117,6 +118,20 @@ export class ProductionsComponent implements OnInit {
     this.dialog.open(ProductionDeleteComponent, dialogConfig)
     .afterClosed().subscribe(res => {
       if(res === 'delete'){
+        this.getAll();
+      }
+    });
+  }
+
+  onEditPlot(plot: Plot) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "30%";
+    dialogConfig.data = plot;
+    this.dialog.open(PlotFormComponent, dialogConfig)
+    .afterClosed().subscribe(res => {
+      if(res === 'update'){
         this.getAll();
       }
     });

@@ -2,12 +2,22 @@
     <mat-card>
         <mat-toolbar color='primary'>
             <div>
+                <button mat-icon-button color="primary" aria-label="Voltar" class="back-btn" routerLink="/farms">
+                    <mat-icon>arrow_back_ios</mat-icon>
+                </button>
+            </div>
+            <div>
                 <p class="farm-name">{{farm.name}}</p>
             </div>
             <div>
                 <p>Produtividade: {{farm.productivity}} kg/ha</p>
-                
             </div>
+            <div>
+                <button mat-icon-button aria-label="Editar fazenda" class="edit-btn" (click)="onEditFarm(farm)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+            </div>
+            
             
         </mat-toolbar>
         <div *ngIf="plots$ | async as plots">
