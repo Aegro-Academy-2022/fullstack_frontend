@@ -10,7 +10,8 @@ import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/err
 import { Plot } from '../model/plot';
 import { PlotDeleteComponent } from '../plot-delete/plot-delete.component';
 import { PlotFormComponent } from '../plot-form/plot-form.component';
-import { PlotsService } from '../services/services.service';
+import { PlotsService } from '../services/plots.service';
+
 
 @Component({
   selector: 'app-plots',
@@ -41,10 +42,6 @@ export default class PlotsComponent implements OnInit {
     this.dialog.open(ErrorDialogComponent, {
       data: message
     });
-  }
-
-  getFk(){
-    return this.fkFarm;
   }
 
   getAll() {

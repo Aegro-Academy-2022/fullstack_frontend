@@ -13,15 +13,15 @@ export class PlotsService {
   constructor(private httpClient: HttpClient) {}
 
   list(id: string | null) {
-    return this.httpClient.get<Plot[]>(this.API+id+"/plots")
+    return this.httpClient.get<Plot[]>(this.API+`${id}/plots/`)
     .pipe(
       first(),
       tap( plots => console.log(plots))
     );
   }
 
-  find(fk: string | null, id: string) {
-    return this.httpClient.get<Plot>(this.API+fk+"/plots/"+id)
+  find(fk: string | null, id: string | null) {
+    return this.httpClient.get<Plot>(this.API+`${fk}/plots/${id}`)
     .pipe(
       first(),
       tap( plot => console.log(plot))
@@ -29,7 +29,7 @@ export class PlotsService {
   }
 
   save(fk: string | null, data : Plot) {
-    return this.httpClient.post<Plot>(this.API+fk+"/plots/", data)
+    return this.httpClient.post<Plot>(this.API+`${fk}/plots/`, data)
     .pipe(
       first(),
       tap( plot => console.log(plot))
@@ -37,7 +37,7 @@ export class PlotsService {
   }
 
   update(fk: string | null, id: string, data: Plot){
-    return this.httpClient.put<Plot>(this.API+fk+"/plots/"+id, data)
+    return this.httpClient.put<Plot>(this.API+`${fk}/plots/${id}`, data)
     .pipe(
       first(),
       tap( plot => console.log(plot))
@@ -46,6 +46,6 @@ export class PlotsService {
   }
 
   remove(fk: string | null, id: string){
-    return this.httpClient.delete(this.API+fk+"/plots/"+id);
+    return this.httpClient.delete(this.API+`${fk}/plots/${id}`);
   }
 }

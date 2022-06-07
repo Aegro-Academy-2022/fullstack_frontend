@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
 import { Plot } from '../model/plot';
-import { PlotsService } from '../services/services.service';
+import { PlotsService } from '../services/plots.service';
 
 @Component({
   selector: 'app-plot-form',
