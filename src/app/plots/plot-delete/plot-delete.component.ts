@@ -35,8 +35,8 @@ export class PlotDeleteComponent implements OnInit {
         this.dialogRef.close('delete');
 
       },
-      error:()=>{
-        this.onError('Erro ao remover o talhão');
+      error:(err)=>{
+        this.onError(err.error.message);
       }
     })
   }

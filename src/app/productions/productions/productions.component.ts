@@ -50,8 +50,8 @@ export class ProductionsComponent implements OnInit {
   getAll() {
     this.plot$ = this.plotsService.find(this.idFarm, this.idPlot)
     .pipe(
-      catchError( error => {
-        this.onError('Erro ao carregar talhão');
+      catchError( err => {
+        this.onError(err.error.message);
         return of()
       }
       )

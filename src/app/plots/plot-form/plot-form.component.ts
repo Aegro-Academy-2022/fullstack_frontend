@@ -48,8 +48,8 @@ export class PlotFormComponent implements OnInit {
             this.dialogRef.close('save');
   
           },
-          error:()=>{
-            this.onError('Erro ao salvar talhão');
+          error:(err)=>{
+            this.onError(err.error.message);
           }
         })
       }
@@ -66,8 +66,8 @@ export class PlotFormComponent implements OnInit {
         this.dialogRef.close('update');
 
       },
-      error:()=>{
-        this.onError('Erro ao atualizar o talhão');
+      error:(err)=>{
+        this.onError(err.error.message);
       }
     })
   }

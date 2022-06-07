@@ -37,8 +37,8 @@ export class ProductionDeleteComponent implements OnInit {
         this.dialogRef.close('delete');
 
       },
-      error:()=>{
-        this.onError('Erro ao remover a produção');
+      error:(err)=>{
+        this.onError(err.error.message);
       }
     })
   }

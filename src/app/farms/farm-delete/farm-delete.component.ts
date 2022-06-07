@@ -34,8 +34,8 @@ export class FarmDeleteComponent implements OnInit {
         this.dialogRef.close('delete');
 
       },
-      error:()=>{
-        this.onError('Erro ao remover a fazenda');
+      error:(err)=>{
+        this.onError(err.error.message);
       }
     })
   }
