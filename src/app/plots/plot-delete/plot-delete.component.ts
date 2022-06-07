@@ -1,21 +1,21 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
-import { Farm } from '../model/farm';
-import { FarmsService } from '../services/farms.service';
+import { Plot } from '../model/plot';
+import { PlotsService } from '../services/plots.service';
 
 @Component({
-  selector: 'app-farm-delete',
-  templateUrl: './farm-delete.component.html',
-  styleUrls: ['./farm-delete.component.scss']
+  selector: 'app-plot-delete',
+  templateUrl: './plot-delete.component.html',
+  styleUrls: ['./plot-delete.component.scss']
 })
-export class FarmDeleteComponent implements OnInit {
+export class PlotDeleteComponent implements OnInit {
 
   constructor(
-    private farmsService: FarmsService,
+    private plotsService: PlotsService,
     public dialog: MatDialog,
-    @Inject(MAT_DIALOG_DATA) public deleteData: Farm,
-    private dialogRef: MatDialogRef<FarmDeleteComponent>
+    @Inject(MAT_DIALOG_DATA) public deleteData: Plot,
+    private dialogRef: MatDialogRef<PlotDeleteComponent>
   ) { }
 
   ngOnInit(): void {
@@ -27,8 +27,9 @@ export class FarmDeleteComponent implements OnInit {
     });
   }
 
-  deleteFarm() {
-    this.farmsService.remove(this.deleteData.id)
+
+  deletePlot() {
+    this.plotsService.remove(this.deleteData.fkFarm, this.deleteData.id)
     .subscribe({
       next:(res)=>{
         this.dialogRef.close('delete');
@@ -39,7 +40,5 @@ export class FarmDeleteComponent implements OnInit {
       }
     })
   }
-
-  
 
 }

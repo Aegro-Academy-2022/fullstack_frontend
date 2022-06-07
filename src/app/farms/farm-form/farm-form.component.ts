@@ -45,8 +45,8 @@ export class FarmFormComponent implements OnInit {
             this.dialogRef.close('save');
   
           },
-          error:()=>{
-            this.onError('Erro ao savar a fazenda');
+          error:(err)=>{
+            this.onError(err.error.message);
           }
         })
       }
@@ -62,8 +62,8 @@ export class FarmFormComponent implements OnInit {
         this.dialogRef.close('update');
 
       },
-      error:()=>{
-        this.onError('Erro ao atualizar a fazenda');
+      error:(err)=>{
+        this.onError(err.error.message);
       }
     })
   }

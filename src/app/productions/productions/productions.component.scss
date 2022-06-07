@@ -1,0 +1,19 @@
+@import "../../shared/styles/main-style.scss";
+
+.mat-toolbar {
+  .plot-name{
+      font-size: 120%;
+      font-weight: bold;
+      margin-right: 20rem;
+  }
+
+  .edit-btn{
+    margin-top: 0.5rem;
+    margin-left: 50rem;
+    color: whitesmoke;
+  }
+}
+
+.mat-column-kilo{
+  width: 80%;
+}

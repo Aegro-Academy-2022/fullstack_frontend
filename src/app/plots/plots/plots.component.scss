@@ -1,0 +1,23 @@
+@import "../../shared/styles/main-style.scss";
+
+.mat-toolbar {
+  .farm-name{
+      font-size: 120%;
+      font-weight: bold;
+      margin-right: 20rem;
+  }
+
+  .edit-btn{
+    margin-top: 0.5rem;
+    margin-left: 57rem;
+    color: whitesmoke;
+  }
+}
+
+.mat-column-name{
+  width: 40%;
+}
+
+.mat-column-area{
+  width: 40%;
+}

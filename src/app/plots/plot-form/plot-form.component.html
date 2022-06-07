@@ -1,0 +1,17 @@
+<div mat-dialog-content>
+    <h1>Formulário de Talhão</h1>
+    <form [formGroup]="plotForm">
+        <mat-form-field appearance="outline">
+          <mat-label>Nome do Talhão</mat-label>
+          <input formControlName="name" matInput placeholder="Talhão">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Área do Talhão (ha)</mat-label>
+            <input formControlName="area" matInput placeholder="10">
+          </mat-form-field>
+      </form>
+</div>
+<div mat-dialog-action>
+    <button mat-flat-button color="warn" mat-dialog-close>Fechar</button>
+    <button mat-stroked-button  color="primary" (click)="savePlot()">{{actionBtn}}</button>
+</div>
